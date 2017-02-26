@@ -1,0 +1,47 @@
+
+
+<div class="container" id="containerDiv">
+    <div class="row">
+            <div class="col-lg-6 col-xs-6 col-centered">
+                <h3>Welcome to Pic Search</h3>
+            </div>
+    </div>
+     <div class="row">
+            <div class="col-lg-6 col-xs-6 col-centered">
+                <form name="form">
+                    <h3>I am looking for pictures of</h3>
+                    <input type="text" placeholder="search text" required
+                    id="serchText" 
+                    ng-model="serchTextTags"
+                    ng-target="form.tags"
+                    name="tags"
+                    ></input>
+                    <div class="form-group">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="rbMode" value="any" ng-model="mode">
+                                Any
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="rbMode" value="all" ng-model="mode">
+                                All
+                            </label>
+                        </div>
+                    </div>
+                    <input type="button" class="btn btn-default" value="Search" ng-click="makeSearch(serchText)"></input>
+                    <input type="button" class="btn btn-default" ng-click="resetForm(form);" value="Reset" />
+                </form>
+            </div>
+    </div>
+    <div class="row" id="images">
+         <h3 ng-show="images.items.length > 0">
+        {{images.title}}
+      </h3>
+      <figure class="added-fig" ng-repeat="i in images.items">
+        <img class="added-img" src="{{i.media.m}}" />
+        <figcaption class="added-cap">{{i.title}}</figcaption>
+      </figure>
+    </div>
+</div>
